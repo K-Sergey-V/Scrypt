@@ -3,8 +3,8 @@
 #---------------- Install NGINX (debian repository) ----------------
 #---Debian
 #---Install the prerequisites:
-sudo apt update
-sudo apt install -y nginx nginx-extras
+#sudo apt update
+#sudo apt install -y nginx nginx-extras
 
 #===================================================================
 #---------------- Install NGINX (nginx repository) -----------------
