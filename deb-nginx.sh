@@ -40,6 +40,6 @@ sudo apt install -y nginx
 sudo mkdir -p /etc/nginx/{sites-available,sites-enabled}
 
 #---Edit
-sudo nano /etc/nginx/nginx.conf
+#sudo nano /etc/nginx/nginx.conf
 #---Paste
-include /etc/nginx/sites-enabled/*;
+#include /etc/nginx/sites-enabled/*;
