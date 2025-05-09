@@ -6,5 +6,6 @@
 sudo apt update & upgrade
 sudo apt install -y nginx nginx-extras
 
+echo "#============================================================"
 echo "Install version:"
 sudo nginx -v
