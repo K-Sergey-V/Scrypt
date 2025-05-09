@@ -44,5 +44,6 @@ sudo mkdir -p /etc/nginx/{sites-available,sites-enabled}
 #---Paste
 #include /etc/nginx/sites-enabled/*;
 
+echo "#============================================================"
 echo "Install version:"
 sudo nginx -v
