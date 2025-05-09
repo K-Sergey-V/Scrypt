@@ -4,8 +4,8 @@
 #---Debian
 #---Install the prerequisites:
 echo "#============================================================"
-echo "update & upgrade:"
-sudo apt update & upgrade
+echo "update && upgrade:"
+sudo apt update && upgrade
 
 echo "#============================================================"
 echo "Install nginx-extras:"
