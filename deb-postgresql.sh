@@ -32,5 +32,5 @@ sudo apt install -y postgresql-$psqlversion
 
 echo "--------------------------------------------------------------------"
 echo "> > > > > Install POSTGRESQL (https://www.postgresql.org/) =====>>>>> Installed version:"
-sudo psql -v
+sudo psql --version
 echo "====================================================="
