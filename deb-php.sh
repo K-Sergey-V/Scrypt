@@ -5,7 +5,7 @@
 echo "================================================================="
 echo "-----------------------------------------------------------------"
 echo "> > > > > Install PHP (https://packages.sury.org/php/) =====>>>>> version"
-read -p "Enter version=" version
+read -p "Enter version=" phpversion
 
 echo "-----------------------------------------------------------------"
 echo "> > > > > Install PHP (https://packages.sury.org/php/) =====>>>>> update && upgrade:"
@@ -24,12 +24,12 @@ sudo apt update
 
 echo "-----------------------------------------------------------------"
 echo "> > > > > Install PHP (https://packages.sury.org/php/) =====>>>>> Install"
-sudo apt install -y php$version-cli php$version-fpm php$version-common php$version-pgsql \
-php$version-dev php$version-imap php$version-redis php$version-apcu php$version-soap \
-php$version-bcmath php$version-bz2 php$version-curl \
-php$version-fpm php$version-gd php$version-gmp php$version-intl php$version-mbstring \
-php$version-opcache  php$version-imagick imagemagick php$version-xml \
-php$version-xmlrpc php$version-zip php$version-memcache php$version-memcached \
+sudo apt install -y php$phpversion-cli php$phpversion-fpm php$phpversion-common php$phpversion-pgsql \
+php$phpversion-dev php$phpversion-imap php$phpversion-redis php$phpversion-apcu php$phpversion-soap \
+php$phpversion-bcmath php$phpversion-bz2 php$phpversion-curl \
+php$phpversion-fpm php$phpversion-gd php$phpversion-gmp php$phpversion-intl php$phpversion-mbstring \
+php$phpversion-opcache  php$phpversion-imagick imagemagick php$phpversion-xml \
+php$phpversion-xmlrpc php$phpversion-zip php$phpversion-memcache php$phpversion-memcached \
 memcached redis-server
 
 
