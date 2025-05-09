@@ -1,14 +1,13 @@
 #!/bin/bash
 #===================================================================
-#---------------- Install NGINX (debian repository) ----------------
-#---Debian
-#---Install the prerequisites:
-#sudo apt update
-#sudo apt install -y nginx nginx-extras
-
-#===================================================================
 #---------------- Install NGINX (nginx repository) -----------------
 #---Debian
+echo "#============================================================"
+echo "update && upgrade:"
+sudo apt update && upgrade
+
+echo "#============================================================"
+echo "add repository:"
 #---Install the prerequisites:
 sudo apt install -y curl gnupg2 ca-certificates lsb-release debian-archive-keyring 
 #---Import an official nginx signing key so apt could verify the packages authenticity. Fetch the key:
@@ -32,10 +31,17 @@ http://nginx.org/packages/debian `lsb_release -cs` nginx" \
 sudo echo -e "Package: *\nPin: origin nginx.org\nPin: release o=nginx\nPin-Priority: 900\n" \
   |  sudo tee /etc/apt/preferences.d/99nginx
 
-#---To install -y nginx, run the following commands:
+echo "#============================================================"
+echo "update:"
 sudo apt update
+
+#---To install -y nginx, run the following commands:
+echo "#============================================================"
+echo "Install NGINX LAST MAIN VERSION:"
 sudo apt install -y nginx
 
+echo "#============================================================"
+echo "Configure > > > > >"
 #---create directory
 sudo mkdir -p /etc/nginx/{sites-available,sites-enabled}
 
