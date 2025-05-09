@@ -2,12 +2,13 @@
 #===================================================================
 #---------------- Install NGINX (nginx repository) -----------------
 #---Debian
-echo "#============================================================"
-echo "update && upgrade:"
+echo "====================================================="
+echo "-----------------------------------------------------"
+echo "> > > > > Install NGINX (nginx repository) =====>>>>> update && upgrade:"
 sudo apt update && upgrade
 
-echo "#============================================================"
-echo "add repository:"
+echo "-----------------------------------------------------"
+echo "> > > > > Install NGINX (nginx repository) =====>>>>> add repository:"
 #---Install the prerequisites:
 sudo apt install -y curl gnupg2 ca-certificates lsb-release debian-archive-keyring 
 #---Import an official nginx signing key so apt could verify the packages authenticity. Fetch the key:
@@ -31,17 +32,17 @@ http://nginx.org/packages/debian `lsb_release -cs` nginx" \
 sudo echo -e "Package: *\nPin: origin nginx.org\nPin: release o=nginx\nPin-Priority: 900\n" \
   |  sudo tee /etc/apt/preferences.d/99nginx
 
-echo "#============================================================"
-echo "update:"
+echo "-----------------------------------------------------"
+echo "> > > > > Install NGINX (nginx repository) =====>>>>> update:"
 sudo apt update
 
 #---To install -y nginx, run the following commands:
-echo "#============================================================"
-echo "Install NGINX LAST MAIN VERSION:"
+echo "-----------------------------------------------------"
+echo "> > > > > Install NGINX (nginx repository) =====>>>>> Install NGINX LAST MAIN VERSION:"
 sudo apt install -y nginx
 
-echo "#============================================================"
-echo "Configure > > > > >"
+echo "-----------------------------------------------------"
+echo "> > > > > Install NGINX (nginx repository) =====>>>>> Configure"
 #---create directory
 sudo mkdir -p /etc/nginx/{sites-available,sites-enabled}
 
@@ -50,6 +51,7 @@ sudo mkdir -p /etc/nginx/{sites-available,sites-enabled}
 #---Paste
 #include /etc/nginx/sites-enabled/*;
 
-echo "#============================================================"
-echo "Install version:"
+echo "-----------------------------------------------------"
+echo "> > > > > Install NGINX (nginx repository) =====>>>>> Installed version:"
 sudo nginx -v
+echo "====================================================="
