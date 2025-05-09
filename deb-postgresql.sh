@@ -28,7 +28,7 @@ echo "> > > > > Install POSTGRESQL (https://www.postgresql.org/) =====>>>>> upda
 sudo apt update
 echo "--------------------------------------------------------------------"
 echo "> > > > > Install POSTGRESQL (https://www.postgresql.org/) =====>>>>> Install"
-sudo apt install postgresql-$psqlversion
+sudo apt install -y postgresql-$psqlversion
 
 echo "--------------------------------------------------------------------"
 echo "> > > > > Install POSTGRESQL (https://www.postgresql.org/) =====>>>>> Installed version:"
