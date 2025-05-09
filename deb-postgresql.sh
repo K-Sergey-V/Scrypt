@@ -5,14 +5,14 @@
 echo "===================================================================="
 echo "--------------------------------------------------------------------"
 echo "> > > > > Install POSTGRESQL (https://www.postgresql.org/) =====>>>>> version"
-read -p "Enter need POSTGRESQL version=" ps-version
+read -p "Enter need POSTGRESQL version=" psqlversion
 
 echo "--------------------------------------------------------------------"
 echo "> > > > > Install POSTGRESQL (https://www.postgresql.org/) =====>>>>> update && upgrade:"
 sudo apt update && upgrade
 
 echo "--------------------------------------------------------------------"
-echo "> > > > > Install POSTGRESQL (https://www.postgresql.org/) =====>>>>> add repository"
+echo "> > > > > Install POSTGRESQL (https://www.postgresql.org/) =====>>>>> add main repository POSTGRESQL"
 #---Manual Repository Configuration
 #---Import the repository key from https://www.postgresql.org/media/keys/ACCC4CF8.asc:
 sudo apt install -y curl ca-certificates
@@ -28,7 +28,7 @@ echo "> > > > > Install POSTGRESQL (https://www.postgresql.org/) =====>>>>> upda
 sudo apt update
 echo "--------------------------------------------------------------------"
 echo "> > > > > Install POSTGRESQL (https://www.postgresql.org/) =====>>>>> Install"
-sudo apt install postgresql-$ps-version
+sudo apt install postgresql-$psqlversion
 
 echo "--------------------------------------------------------------------"
 echo "> > > > > Install POSTGRESQL (https://www.postgresql.org/) =====>>>>> Installed version:"
