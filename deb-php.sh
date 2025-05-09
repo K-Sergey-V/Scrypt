@@ -4,8 +4,8 @@
 #---Debian
 echo "================================================================="
 echo "-----------------------------------------------------------------"
-echo "> > > > > Install PHP (https://packages.sury.org/php/) =====>>>>> Enter version"
-version
+echo "> > > > > Install PHP (https://packages.sury.org/php/) =====>>>>> version"
+read -p "Enter version = "version
 
 echo "-----------------------------------------------------------------"
 echo "> > > > > Install PHP (https://packages.sury.org/php/) =====>>>>> update && upgrade:"
