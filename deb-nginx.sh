@@ -1,12 +1,11 @@
 #!/bin/bash
-# https://github.com/K-Sergey-V/Scrypt/blob/main/deb-nginx.sh
 # Install lastet NGINX (nginx repository)
 # version by 2025-05-12-0027
 # Sergey Krichko
 #===================================================================
 #---------------- Install NGINX (nginx repository) -----------------
 #---Debian
-echo -e "\033[36m"
+echo -e "> > > > > \033[36m"
 echo "====================================================="
 echo "-----------------------------------------------------"
 echo "> > > > > Install NGINX (nginx repository) =====>>>>> update && upgrade:"
@@ -60,4 +59,4 @@ echo "-----------------------------------------------------"
 echo "> > > > > Install NGINX (nginx repository) =====>>>>> Installed version:"
 sudo nginx -v
 echo "====================================================="
-echo -e "\033[0m"
+echo -e "< < < < < \033[0m"
