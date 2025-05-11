@@ -56,4 +56,4 @@ echo "-----------------------------------------------------"
 echo "> > > > > Install NGINX (nginx repository) =====>>>>> Installed version:"
 sudo nginx -v
 echo "====================================================="
-echo "\033[30m}"
+echo ""
