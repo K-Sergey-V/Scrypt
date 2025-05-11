@@ -1,4 +1,5 @@
 #!/bin/bash
+# https://github.com/K-Sergey-V/Scrypt/blob/main/deb-nginx.sh
 # Install lastet NGINX (nginx repository)
 # version by 2025-05-12-0027
 # Sergey Krichko
