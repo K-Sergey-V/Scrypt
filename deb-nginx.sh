@@ -1,4 +1,8 @@
 #!/bin/bash
+# Install lastet NGINX (nginx repository)
+# version by 2025-05-12-0027
+# Sergey Krichko
+
 #===================================================================
 #---------------- Install NGINX (nginx repository) -----------------
 #---Debian
