@@ -56,6 +56,9 @@ sudo mkdir -p /etc/nginx/{sites-available,sites-enabled}
 #---Paste
 #include /etc/nginx/sites-enabled/*;
 
+#---Start NGINX
+sudo systemctl start nginx
+
 echo "\e[31m-----------------------------------------------------"
 echo "\e[31m-----------------------------------------------------"
 echo "\e[31m-----------------------------------------------------"
