@@ -6,28 +6,28 @@
 #===============================================================================
 #---------------- Install PHP (https://packages.sury.org/php/) -----------------
 #---Debian
-echo "\e[32m================================================================="
-echo "\e[32m-----------------------------------------------------------------"
-echo "\e[32m> > > > > Install PHP (https://packages.sury.org/php/) =====>>>>> version"
+echo "\e[33m================================================================="
+echo "\e[33m-----------------------------------------------------------------"
+echo "\e[33m> > > > > Install PHP (https://packages.sury.org/php/) =====>>>>> version"
 read -p "Enter version=" phpversion
 
-echo "\e[32m-----------------------------------------------------------------"
-echo "\e[32m> > > > > Install PHP (https://packages.sury.org/php/) =====>>>>> update && upgrade:"
+echo "\e[33m-----------------------------------------------------------------"
+echo "\e[33m> > > > > Install PHP (https://packages.sury.org/php/) =====>>>>> update && upgrade:"
 sudo apt update && upgrade
 
-echo "\e[32m-----------------------------------------------------------------"
-echo "\e[32m> > > > > Install PHP (https://packages.sury.org/php/) =====>>>>> add repository"
+echo "\e[33m-----------------------------------------------------------------"
+echo "\e[33m> > > > > Install PHP (https://packages.sury.org/php/) =====>>>>> add repository"
 sudo apt -y install lsb-release ca-certificates curl apt-transport-https
 sudo curl -sSLo /tmp/debsuryorg-archive-keyring.deb https://packages.sury.org/debsuryorg-archive-keyring.deb
 sudo dpkg -i /tmp/debsuryorg-archive-keyring.deb
 sudo sh -c 'echo "deb [signed-by=/usr/share/keyrings/deb.sury.org-php.gpg] https://packages.sury.org/php/ $(lsb_release -sc) main" > /etc/apt/sources.list.d/php.list'
 
-echo "\e[32m-----------------------------------------------------------------"
-echo "\e[32m> > > > > Install PHP (https://packages.sury.org/php/) =====>>>>> update"
+echo "\e[33m-----------------------------------------------------------------"
+echo "\e[33m> > > > > Install PHP (https://packages.sury.org/php/) =====>>>>> update"
 sudo apt update
 
-echo "\e[32m-----------------------------------------------------------------"
-echo "\e[32m> > > > > Install PHP (https://packages.sury.org/php/) =====>>>>> Install"
+echo "\e[33m-----------------------------------------------------------------"
+echo "\e[33m> > > > > Install PHP (https://packages.sury.org/php/) =====>>>>> Install"
 sudo apt install -y php$phpversion-cli php$phpversion-fpm php$phpversion-common
 sudo apt install -y php$phpversion-pgsql php$phpversion-curl php$phpversion-xml \
  php$phpversion-dev php$phpversion-imap php$phpversion-redis php$phpversion-apcu php$phpversion-soap \
@@ -37,8 +37,14 @@ sudo apt install -y php$phpversion-pgsql php$phpversion-curl php$phpversion-xml 
  memcached redis-server
 
 
-echo "\e[32m-----------------------------------------------------------------"
+echo "\e[33m-----------------------------------------------------------------"
+echo "\e[33m-----------------------------------------------------------------"
+echo "\e[33m-----------------------------------------------------------------"
 echo "\e[32m> > > > > Install PHP (https://packages.sury.org/php/) =====>>>>> Installed version:"
 sudo php -v
-echo "\e[32m================================================================="
-echo "\e[32m< < < < < < < < < < < < < < < < < < < < < < < < < < < < < < \e[0m"
+echo "\e[33m================================================================="
+echo "\e[33m================================================================="
+echo "\e[33m================================================================="
+echo "\e[33m< < < < < < < < < < < < < < < < < < < < < < < < < < < < < < \e[0m"
+echo "\e[33m< < < < < < < < < < < < < < < < < < < < < < < < < < < < < < \e[0m"
+echo "\e[33m< < < < < < < < < < < < < < < < < < < < < < < < < < < < < < \e[0m"
