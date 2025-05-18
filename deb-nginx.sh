@@ -29,9 +29,9 @@ sudo gpg --dry-run --quiet --no-keyring --import --import-options import-show /u
 #    Note that the output can contain other keys used to sign the packages. 
  
 #---To set up the apt repository for stable nginx packages, run the following command:
-sudo echo "deb [signed-by=/usr/share/keyrings/nginx-archive-keyring.gpg] \
+echo "deb [signed-by=/usr/share/keyrings/nginx-archive-keyring.gpg] \
 http://nginx.org/packages/debian `lsb_release -cs` nginx" \
-  | sudo tee /etc/apt/sources.list.d/nginx.list
+  | sudo tee /etc/apt/sources.list.d/nginx.list > /dev/null
  
 #---Set up repository pinning to prefer our packages over distribution-provided ones:
 sudo echo -e "Package: *\nPin: origin nginx.org\nPin: release o=nginx\nPin-Priority: 900\n" \
@@ -51,10 +51,9 @@ echo "\e[31m> > > > > Install NGINX (nginx repository) =====>>>>> Configure"
 #---create directory
 sudo mkdir -p /etc/nginx/{sites-available,sites-enabled}
 
-#---Edit
-#sudo nano /etc/nginx/nginx.conf
-#---Paste
-#include /etc/nginx/sites-enabled/*;
+#---Edit => /etc/nginx/nginx.conf
+#---Paste => include /etc/nginx/sites-enabled/*;
+sudo sed -i '/include \/etc\/nginx\/conf\.d\/\*\.conf;/a \    include /etc/nginx/sites-enabled/*;' /etc/nginx/nginx.conf
 
 #---Start NGINX
 sudo systemctl start nginx
