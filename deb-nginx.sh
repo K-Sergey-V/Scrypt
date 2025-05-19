@@ -6,6 +6,7 @@
 #===================================================================
 #---------------- Install NGINX (nginx repository) -----------------
 #---Debian
+servername=$(hostname)
 echo "\e[31m> > > > > > > > > > > > > > > > > > > > > > > > > > > > > >"
 echo "\e[31m====================================================="
 echo "\e[31m-----------------------------------------------------"
@@ -62,7 +63,7 @@ sudo tee /usr/share/nginx/html/index.html > /dev/null <<EOF
 <!DOCTYPE html>
 <html>
 <head>
-<title>$hostname nginx!</title>
+<title>$(hostname) nginx!</title>
 <style>
 html { color-scheme: light dark; }
 body { width: 35em; margin: 0 auto;
@@ -70,7 +71,7 @@ font-family: Tahoma, Verdana, Arial, sans-serif; }
 </style>
 </head>
 <body>
-<h1>Welcome to nginx! $hostname</h1>
+<h1>Welcome to nginx! $(hostname)</h1>
 <p>If you see this page, the nginx web server is successfully installed and
 working. Further configuration is required.</p>
 
