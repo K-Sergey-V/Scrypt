@@ -55,6 +55,30 @@ sudo mkdir -p /etc/nginx/{sites-available,sites-enabled}
 #---Paste => include /etc/nginx/sites-enabled/*;
 sudo sed -i '/include \/etc\/nginx\/conf\.d\/\*\.conf;/a \    include /etc/nginx/sites-enabled/*;' /etc/nginx/nginx.conf
 
+#---info about server
+#sudo sed -i  '/<h1>Welcome to nginx!</h1>//<h1>Welcome to nginx! </h1>/s  /usr/share/nginx/html/index.html
+
+sudo tee /usr/share/nginx/html/index.html > /dev/null <<EOF
+<!DOCTYPE html>
+<html>
+<head>
+<title>$hostname nginx!</title>
+<style>
+html { color-scheme: light dark; }
+body { width: 35em; margin: 0 auto;
+font-family: Tahoma, Verdana, Arial, sans-serif; }
+</style>
+</head>
+<body>
+<h1>Welcome to nginx! $hostname</h1>
+<p>If you see this page, the nginx web server is successfully installed and
+working. Further configuration is required.</p>
+
+<p><em>Thank you for using nginx.</em></p>
+</body>
+</html>
+EOF
+
 #---Start NGINX
 sudo systemctl start nginx
 
