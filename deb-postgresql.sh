@@ -11,17 +11,20 @@ if [ -z "$1" ]; then
     exit 1
 fi
 psqlversion=$1
+#read -p "Enter need POSTGRESQL version=" psqlversion
 
+#---
 echo "\e[34m> > > > > > > > > > > > > > > > > > > > > > > > > > > > > >"
 echo "\e[34m===================================================================="
 echo "\e[34m--------------------------------------------------------------------"
 echo "\e[34m> > > > > Install POSTGRESQL (https://www.postgresql.org/) =====>>>>> version=$psqlversion"
-#read -p "Enter need POSTGRESQL version=" psqlversion
 
+#---
 echo "\e[34m--------------------------------------------------------------------"
 echo "\e[34m> > > > > Install POSTGRESQL (https://www.postgresql.org/) =====>>>>> update && upgrade:"
 sudo apt update && upgrade
 
+#---
 echo "\e[34m--------------------------------------------------------------------"
 echo "\e[34m> > > > > Install POSTGRESQL (https://www.postgresql.org/) =====>>>>> add main repository POSTGRESQL"
 #---Manual Repository Configuration
@@ -33,14 +36,17 @@ sudo curl -o /usr/share/postgresql-common/pgdg/apt.postgresql.org.asc --fail htt
 #---Create /etc/apt/sources.list.d/pgdg.list. The distributions are called codename-pgdg. In the example, replace bookworm with the actual distribution you are using. File contents:
 sudo sh -c 'echo "deb [signed-by=/usr/share/postgresql-common/pgdg/apt.postgresql.org.asc] https://apt.postgresql.org/pub/repos/apt $(lsb_release -cs)-pgdg main" > /etc/apt/sources.list.d/pgdg.list'
 
+#---
 echo "\e[34m--------------------------------------------------------------------"
 echo "\e[34m> > > > > Install POSTGRESQL (https://www.postgresql.org/) =====>>>>> update"
-#---Finally, update the package lists, and start installing packages:
 sudo apt update
+
+#---
 echo "\e[34m--------------------------------------------------------------------"
 echo "\e[34m> > > > > Install POSTGRESQL (https://www.postgresql.org/) =====>>>>> Install"
 sudo apt install -y postgresql-$psqlversion
 
+#---
 echo "\e[34m--------------------------------------------------------------------"
 echo "\e[34m--------------------------------------------------------------------"
 echo "\e[34m--------------------------------------------------------------------"
