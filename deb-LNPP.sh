@@ -9,5 +9,5 @@ wget https://raw.githubusercontent.com/K-Sergey-V/Scrypt/refs/heads/main/deb-php
 wget https://raw.githubusercontent.com/K-Sergey-V/Scrypt/refs/heads/main/deb-postgresql.sh
 
 sh deb-nginx.sh
-sh deb-php.sh
-sh deb-postgresql.sh
+sh deb-php.sh 8.3
+sh deb-postgresql.sh 17

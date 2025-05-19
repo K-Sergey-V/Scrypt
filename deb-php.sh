@@ -14,7 +14,7 @@ phpversion=$1
 
 echo "\e[33m================================================================="
 echo "\e[33m-----------------------------------------------------------------"
-echo "\e[33m> > > > > Install PHP (https://packages.sury.org/php/) =====>>>>> version phpversion=$phpversion"
+echo "\e[33m> > > > > Install PHP (https://packages.sury.org/php/) =====>>>>> version=$phpversion"
 #read -p "Enter version=" phpversion
 sleep 3  # Waits 5 seconds
 

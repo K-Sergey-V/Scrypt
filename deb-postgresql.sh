@@ -6,11 +6,17 @@
 #===================================================================================
 #---------------- Install POSTGRESQL (https://www.postgresql.org/) -----------------
 #---Debian
+if [ -z "$1" ]; then
+    echo "Ошибка: не указана версия POSTGRESQL"
+    exit 1
+fi
+psqlversion=$1
+
 echo "\e[34m> > > > > > > > > > > > > > > > > > > > > > > > > > > > > >"
 echo "\e[34m===================================================================="
 echo "\e[34m--------------------------------------------------------------------"
-echo "\e[34m> > > > > Install POSTGRESQL (https://www.postgresql.org/) =====>>>>> version"
-read -p "Enter need POSTGRESQL version=" psqlversion
+echo "\e[34m> > > > > Install POSTGRESQL (https://www.postgresql.org/) =====>>>>> version=$psqlversion"
+#read -p "Enter need POSTGRESQL version=" psqlversion
 
 echo "\e[34m--------------------------------------------------------------------"
 echo "\e[34m> > > > > Install POSTGRESQL (https://www.postgresql.org/) =====>>>>> update && upgrade:"
