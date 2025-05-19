@@ -6,11 +6,15 @@
 #===============================================================================
 #---------------- Install PHP (https://packages.sury.org/php/) -----------------
 #---Debian
+if [ -z "$1" ]; then
+    echo "Ошибка: не указана версия PHP"
+    exit 1
+fi
+phpversion=$1
+
 echo "\e[33m================================================================="
 echo "\e[33m-----------------------------------------------------------------"
-
-phpversion=8.3
-echo "\e[33m> > > > > Install PHP (https://packages.sury.org/php/) =====>>>>> version phpversion=$1"
+echo "\e[33m> > > > > Install PHP (https://packages.sury.org/php/) =====>>>>> version phpversion=$phpversion"
 #read -p "Enter version=" phpversion
 sleep 5  # Waits 5 seconds
 
