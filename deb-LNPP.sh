@@ -8,6 +8,6 @@ wget https://raw.githubusercontent.com/K-Sergey-V/Scrypt/refs/heads/main/deb-ngi
 wget https://raw.githubusercontent.com/K-Sergey-V/Scrypt/refs/heads/main/deb-php.sh
 wget https://raw.githubusercontent.com/K-Sergey-V/Scrypt/refs/heads/main/deb-postgresql.sh
 
-sh deb-nginx.sh
-sh deb-php.sh 8.3
-sh deb-postgresql.sh 17
+bash deb-nginx.sh
+bash deb-php.sh 8.3
+bash deb-postgresql.sh 17
