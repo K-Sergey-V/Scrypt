@@ -25,7 +25,7 @@ sudo mkdir -p /extdata
 #---Просмотреть метку диска
 echo "\e[35m-----------------------------------------------------"
 sudo blkid
-Wait 3
+sleep 3
 #---Добавить диск в загрузку
 #sudo nano /etc/fstab
 #UUID=e52f5d60-dcdd-4cc1-b65c-06526cc5e1ba /extdata  ext4  defaults  0 1
