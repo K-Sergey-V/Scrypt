@@ -26,8 +26,8 @@ sudo mkdir -p /extdata
 sudo blkid
 
 #---Добавить диск в загрузку
-sudo nano /etc/fstab
-UUID=e52f5d60-dcdd-4cc1-b65c-06526cc5e1ba /extdata  ext4  defaults  0 1
+#sudo nano /etc/fstab
+#UUID=e52f5d60-dcdd-4cc1-b65c-06526cc5e1ba /extdata  ext4  defaults  0 1
 
 #---Проверить монтирование раздела
 sudo mount -a
