@@ -23,8 +23,9 @@ sudo mkfs.ext4 /dev/sdb
 sudo mkdir -p /extdata
 
 #---Просмотреть метку диска
+echo "\e[35m-----------------------------------------------------"
 sudo blkid
-
+Wait 3
 #---Добавить диск в загрузку
 #sudo nano /etc/fstab
 #UUID=e52f5d60-dcdd-4cc1-b65c-06526cc5e1ba /extdata  ext4  defaults  0 1
@@ -41,7 +42,7 @@ sudo tar -xjvf /extdata/latest.tar.bz2 -C /extdata/
 ls -la /extdata
 
 #---Создадим директорию для данных NextCloud сервера и скопирует туда все файлы дистрибутива:
-sudo mkdir -p /extdata/mylan.mycloud
+sudo mkdir -p /extdata/$nextclouddomainzone.$nextclouddomainname
 sudo cp -r /extdata/nextcloud/* /extdata/$nextclouddomainzone.$nextclouddomainname/
 
 #---Теперь необходимо изменить владельца для всего каталога /extdata/nextcloud:
