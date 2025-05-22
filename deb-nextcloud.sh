@@ -47,6 +47,11 @@ sudo cp -r /tmp/nextcloud/* /tmp/$nextclouddomainzone.$nextclouddomainname/
 
 #---Теперь необходимо изменить владельца для всего каталога /extdata/nextcloud:
 sudo chown -R nginx:nginx /tmp/$nextclouddomainzone.$nextclouddomainname
+
+
+echo " | | | | | | | | | | | | | | | | | | | | |"
+echo " | | | | | | | | | | | | | | | | | | | | |"
+echo " V V V V V V V V V V V V V V V V V V V V V"
 sudo ls -la /tmp/
 #---#---Настройка NGINX
 #sudo nano /etc/nginx/sites-available/$nextclouddomainzone.$nextclouddomainname.conf
