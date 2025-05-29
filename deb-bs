@@ -11,7 +11,7 @@ apt install -y sudo
 # Add user
 read -p "Enter new user => " newuser
 adduser $newuser
-passwd $newuser
+#passwd $newuser
 
 # config sudo
 
