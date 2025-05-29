@@ -27,8 +27,8 @@ else
     useradd -m -s /bin/bash "$USERNAME"
     echo "$USERNAME:$PASSWORD" | chpasswd
     echo "[newuser][✓] Пользователь $USERNAME создан"
-fi
 
     # === Добавление в группу sudo ===
     usermod -aG sudo "$USERNAME"
     echo "[newuser][✓] Пользователь $USERNAME добавлен в группу sudo"
+fi
