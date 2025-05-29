@@ -30,6 +30,11 @@ fi
 
 apt install -y mtr net-tools
 
+wget https://raw.githubusercontent.com/K-Sergey-V/Scrypt/refs/heads/main/deb-config-newuser
 bash deb-config-newuser
+
+wget https://raw.githubusercontent.com/K-Sergey-V/Scrypt/refs/heads/main/deb-config-ssh
 bash deb-config-ssh
+
+wget https://raw.githubusercontent.com/K-Sergey-V/Scrypt/refs/heads/main/deb-config-ip
 bash deb-config-ip

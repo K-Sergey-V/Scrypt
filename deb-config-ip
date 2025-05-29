@@ -6,24 +6,38 @@ set -e
 
 CONFIG_FILE="/etc/network/interfaces"
 
-echo "[IP][+] Настройка статического IP..."
-
-# Получаем имя сетевого интерфейса (например, eth0 или enp0s3)
+# Получаем имя активного интерфейса
 IFACE=$(ip -o -4 route show to default | awk '{print $5}')
 
-echo "Обнаружен интерфейс: $IFACE"
+echo "[IP][+] Обнаружен интерфейс: $IFACE"
+echo "Выберите тип настройки сети:"
+echo "d) Динамический (DHCP)"
+echo "s) Статический IP"
+read -p "Введите d или s: " MODE
 
-# === Ввод параметров ===
-read -p "Введите желаемый статический IP-адрес (например, 192.168.1.100): " IP_ADDR
-read -p "Введите маску подсети (например, 255.255.255.0): " NETMASK
-read -p "Введите шлюз (например, 192.168.1.1): " GATEWAY
-read -p "Введите DNS-сервер(а) (например, 8.8.8.8 1.1.1.1): " DNS
-
-# === Создание backup ===
+# Создание backup
 cp "$CONFIG_FILE" "$CONFIG_FILE.bak"
 
-# === Замена конфигурации интерфейса ===
-cat > "$CONFIG_FILE" <<EOF
+if [[ "$MODE" == "d" ]]; then
+    echo "[IP][dhcp][+] Настройка DHCP..."
+
+    cat > "$CONFIG_FILE" <<EOF
+auto lo
+iface lo inet loopback
+
+auto $IFACE
+iface $IFACE inet dhcp
+EOF
+
+elif [[ "$MODE" == "s" ]]; then
+    read -p "Введите статический IP-адрес (например, 192.168.1.100): " IP_ADDR
+    read -p "Введите маску подсети (например, 255.255.255.0): " NETMASK
+    read -p "Введите шлюз (например, 192.168.1.1): " GATEWAY
+    read -p "Введите DNS-сервер(а) (например, 8.8.8.8 1.1.1.1): " DNS
+
+    echo "[IP][static][+] Настройка статического IP..."
+
+    cat > "$CONFIG_FILE" <<EOF
 auto lo
 iface lo inet loopback
 
@@ -35,8 +49,13 @@ iface $IFACE inet static
     dns-nameservers $DNS
 EOF
 
-# === Перезапуск сети ===
-echo "[IP][+] Перезапуск сети..."
+else
+    echo "[IP][!] Неверный выбор. Прерывание."
+    exit 1
+fi
+
+# Перезапуск сети
+echo "[IP][+] Перезапуск интерфейса $IFACE..."
 ifdown "$IFACE" && ifup "$IFACE"
 
-echo "[IP][✓] Статический IP-адрес настроен на $IFACE: $IP_ADDR"
+echo "[IP][✓] Сетевая конфигурация обновлена."
