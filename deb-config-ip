@@ -50,7 +50,7 @@ iface $IFACE inet static
 EOF
 
 else
-    echo "[IP][!] Неверный выбор. Прерывание."
+    echo "[IP][!] Без изменения сетевых настроек. Прерывание."
     exit 1
 fi
 

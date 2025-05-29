@@ -26,7 +26,7 @@ else
     echo "[newuser][>] Создание пользователя $USERNAME..."
     useradd -m -s /bin/bash "$USERNAME"
     echo "$USERNAME:$PASSWORD" | chpasswd
-    cho "[newuser][✓] Пользователь $USERNAME создан"
+    echo "[newuser][✓] Пользователь $USERNAME создан"
 fi
 
     # === Добавление в группу sudo ===
