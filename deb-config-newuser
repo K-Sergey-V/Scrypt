@@ -32,4 +32,3 @@ fi
     # === Добавление в группу sudo ===
     usermod -aG sudo "$USERNAME"
     echo "[newuser][✓] Пользователь $USERNAME добавлен в группу sudo"
-fi
