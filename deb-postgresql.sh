@@ -14,19 +14,19 @@ psqlversion=$1
 #read -p "Enter need POSTGRESQL version=" psqlversion
 
 #---
-echo "\e[34m> > > > > > > > > > > > > > > > > > > > > > > > > > > > > >"
-echo "\e[34m===================================================================="
-echo "\e[34m--------------------------------------------------------------------"
-echo "\e[34m> > > > > Install POSTGRESQL (https://www.postgresql.org/) =====>>>>> version=$psqlversion"
+echo "> > > > > > > > > > > > > > > > > > > > > > > > > > > > > >"
+echo "===================================================================="
+echo "--------------------------------------------------------------------"
+echo "> > > > > Install POSTGRESQL (https://www.postgresql.org/) =====>>>>> version=$psqlversion"
 
 #---
-echo "\e[34m--------------------------------------------------------------------"
-echo "\e[34m> > > > > Install POSTGRESQL (https://www.postgresql.org/) =====>>>>> update && upgrade:"
+echo "--------------------------------------------------------------------"
+echo "> > > > > Install POSTGRESQL (https://www.postgresql.org/) =====>>>>> update && upgrade:"
 sudo apt update && upgrade
 
 #---
-echo "\e[34m--------------------------------------------------------------------"
-echo "\e[34m> > > > > Install POSTGRESQL (https://www.postgresql.org/) =====>>>>> add main repository POSTGRESQL"
+echo "--------------------------------------------------------------------"
+echo "> > > > > Install POSTGRESQL (https://www.postgresql.org/) =====>>>>> add main repository POSTGRESQL"
 #---Manual Repository Configuration
 #---Import the repository key from https://www.postgresql.org/media/keys/ACCC4CF8.asc:
 sudo apt install -y curl ca-certificates
@@ -37,26 +37,27 @@ sudo curl -o /usr/share/postgresql-common/pgdg/apt.postgresql.org.asc --fail htt
 sudo sh -c 'echo "deb [signed-by=/usr/share/postgresql-common/pgdg/apt.postgresql.org.asc] https://apt.postgresql.org/pub/repos/apt $(lsb_release -cs)-pgdg main" > /etc/apt/sources.list.d/pgdg.list'
 
 #---
-echo "\e[34m--------------------------------------------------------------------"
-echo "\e[34m> > > > > Install POSTGRESQL (https://www.postgresql.org/) =====>>>>> update"
+echo "--------------------------------------------------------------------"
+echo "> > > > > Install POSTGRESQL (https://www.postgresql.org/) =====>>>>> update"
 sudo apt update
 
 #---
-echo "\e[34m--------------------------------------------------------------------"
-echo "\e[34m> > > > > Install POSTGRESQL (https://www.postgresql.org/) =====>>>>> Install"
+echo "--------------------------------------------------------------------"
+echo "> > > > > Install POSTGRESQL (https://www.postgresql.org/) =====>>>>> Install"
 sudo apt install -y postgresql-$psqlversion
 
 #---
-echo "\e[34m--------------------------------------------------------------------"
-echo "\e[34m--------------------------------------------------------------------"
-echo "\e[34m--------------------------------------------------------------------"
-echo "\e[32m> > > > > Install POSTGRESQL (https://www.postgresql.org/) =====>>>>> Installed version:"
+echo "--------------------------------------------------------------------"
+echo "--------------------------------------------------------------------"
+echo "--------------------------------------------------------------------"
+echo "> > > > > Install POSTGRESQL (https://www.postgresql.org/) =====>>>>> Installed version:"
 sudo psql --version
-echo "\e[34m▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓"
-echo "\e[34m▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ POSTGRESQL ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓"
-echo "\e[34m▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ SUCCESSFUL ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓"
-echo "\e[34m▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓"
-echo "\e[34m< < < < < < < < < < < < < < < < < < < < < < < < < < < < < < \e[0m"
-echo "\e[34m< < < < < < < < < < < < < < < < < < < < < < < < < < < < < < \e[0m"
-echo "\e[34m< < < < < < < < < < < < < < < < < < < < < < < < < < < < < < \e[0m"
+
+echo "▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓"
+echo "▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ POSTGRESQL ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓"
+echo "▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ SUCCESSFUL ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓"
+echo "▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓"
+echo "< < < < < < < < < < < < < < < < < < < < < < < < < < < < < < "
+echo "< < < < < < < < < < < < < < < < < < < < < < < < < < < < < < "
+echo "< < < < < < < < < < < < < < < < < < < < < < < < < < < < < < "
 sleep 1.1  # Waits

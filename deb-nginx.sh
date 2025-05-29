@@ -6,14 +6,14 @@
 #===================================================================
 #---------------- Install NGINX (nginx repository) -----------------
 #---Debian
-echo "\e[31m> > > > > > > > > > > > > > > > > > > > > > > > > > > > > >"
-echo "\e[31m====================================================="
-echo "\e[31m-----------------------------------------------------"
-echo "\e[31m> > > > > Install NGINX (nginx repository) =====>>>>> update && upgrade:"
+echo "> > > > > > > > > > > > > > > > > > > > > > > > > > > > > >"
+echo "====================================================="
+echo "-----------------------------------------------------"
+echo "> > > > > Install NGINX (nginx repository) =====>>>>> update && upgrade:"
 sudo apt update && upgrade
 
 echo "-----------------------------------------------------"
-echo "\e[31m> > > > > Install NGINX (nginx repository) =====>>>>> add repository:"
+echo "> > > > > Install NGINX (nginx repository) =====>>>>> add repository:"
 
 #---Install the prerequisites:
 sudo apt install -y curl gnupg2 ca-certificates lsb-release debian-archive-keyring 
@@ -41,16 +41,16 @@ sudo echo -e "Package: *\nPin: origin nginx.org\nPin: release o=nginx\nPin-Prior
   |  sudo tee /etc/apt/preferences.d/99nginx
 
 #---
-echo "\e[31m-----------------------------------------------------"
-echo "\e[31m> > > > > Install NGINX (nginx repository) =====>>>>> update:"
+echo "-----------------------------------------------------"
+echo "> > > > > Install NGINX (nginx repository) =====>>>>> update:"
 sudo apt update
 
 #---To install -y nginx, run the following commands:
-echo "\e[31m-----------------------------------------------------"
-echo "\e[31m> > > > > Install NGINX (nginx repository) =====>>>>> Install NGINX LAST MAIN VERSION:"
+echo "-----------------------------------------------------"
+echo "> > > > > Install NGINX (nginx repository) =====>>>>> Install NGINX LAST MAIN VERSION:"
 sudo apt install -y nginx
-echo "\e[31m-----------------------------------------------------"
-echo "\e[31m> > > > > Install NGINX (nginx repository) =====>>>>> Configure"
+echo "-----------------------------------------------------"
+echo "> > > > > Install NGINX (nginx repository) =====>>>>> Configure"
 
 #---create directory
 sudo mkdir -p /etc/nginx/{sites-available,sites-enabled}
@@ -58,6 +58,18 @@ sudo mkdir -p /etc/nginx/{sites-available,sites-enabled}
 #---Edit => /etc/nginx/nginx.conf
 #---Paste => include /etc/nginx/sites-enabled/*;
 sudo sed -i '/include \/etc\/nginx\/conf\.d\/\*\.conf;/a \    include /etc/nginx/sites-enabled/*;' /etc/nginx/nginx.conf
+#FIND_LINE='    include /etc/nginx/sites-enabled/*;'
+#ADD_LINE='    include /etc/nginx/sites-enabled/*;'
+#AFTER_LINE='include /etc/nginx/conf.d/*.conf;'
+#FILE='/etc/nginx/nginx.conf'
+#if grep -Fxq "$ADD_LINE" "$FILE"; then
+#    echo "Настройка уже применена!"
+#    else
+#    sudo sed -i "/$AFTER_LINE/a $ADD_LINE" "$FILE"
+#    echo "Настройка '$ADD_LINE' добавлена."
+#fi
+
+
 
 #---info about server
 #sudo sed -i  '/<h1>Welcome to nginx!</h1>//<h1>Welcome to nginx! </h1>/s  /usr/share/nginx/html/index.html
@@ -86,16 +98,16 @@ EOF
 sudo systemctl start nginx
 
 #---
-echo "\e[31m-----------------------------------------------------"
-echo "\e[31m-----------------------------------------------------"
-echo "\e[31m-----------------------------------------------------"
-echo "\e[32m> > > > > Install NGINX (nginx repository) =====>>>>> Installed version:"
+echo "-----------------------------------------------------"
+echo "-----------------------------------------------------"
+echo "-----------------------------------------------------"
+echo "> > > > > Install NGINX (nginx repository) =====>>>>> Installed version:"
 sudo nginx -v
-echo "\e[31m▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓"
-echo "\e[31m▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓   NGINX    ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓"
-echo "\e[31m▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ SUCCESSFUL ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓"
-echo "\e[31m▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓"
-echo "\e[31m< < < < < < < < < < < < < < < < < < < < < < < < < < < < < < \e[0m"
-echo "\e[31m< < < < < < < < < < < < < < < < < < < < < < < < < < < < < < \e[0m"
-echo "\e[31m< < < < < < < < < < < < < < < < < < < < < < < < < < < < < < \e[0m"
+echo "▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓"
+echo "▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓   NGINX    ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓"
+echo "▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ SUCCESSFUL ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓"
+echo "▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓"
+echo "< < < < < < < < < < < < < < < < < < < < < < < < < < < < < < "
+echo "< < < < < < < < < < < < < < < < < < < < < < < < < < < < < < "
+echo "< < < < < < < < < < < < < < < < < < < < < < < < < < < < < < "
 sleep 1.1  # Wait
