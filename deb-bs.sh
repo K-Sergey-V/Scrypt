@@ -13,17 +13,20 @@ read -p "Enter new user => " newuser
 adduser $newuser
 #passwd $newuser
 
-# config sudo
+#
+echo "config sudo"
 
 ADD_LINE="$newuser ALL=(ALL:ALL) ALL"
 AFTER_LINE='root    ALL=(ALL:ALL) ALL'
 FILE='/etc/sudoers'
 
-# Экранируем переменные для sed
+#
+echo " Экранируем переменные для sed"
 escaped_add_line=$(printf '%s\n' "$ADD_LINE" | sed 's/[&/\]/\\&/g')
 escaped_after_line=$(printf '%s\n' "$AFTER_LINE" | sed 's/[&/\]/\\&/g')
 
-# Добавляем строку после нужной
+#
+echo " Добавляем строку после нужной"
 sudo sed -i "/^$escaped_after_line$/a $escaped_add_line" "$FILE"
 
 
