@@ -1,0 +1,42 @@
+#!/bin/bash
+# wget https://raw.githubusercontent.com/K-Sergey-V/Scrypt/refs/heads/main/deb-config-ip
+# version by 2025-05-29
+# Sergey Krichko
+set -e
+
+CONFIG_FILE="/etc/network/interfaces"
+
+echo "[IP][+] Настройка статического IP..."
+
+# Получаем имя сетевого интерфейса (например, eth0 или enp0s3)
+IFACE=$(ip -o -4 route show to default | awk '{print $5}')
+
+echo "Обнаружен интерфейс: $IFACE"
+
+# === Ввод параметров ===
+read -p "Введите желаемый статический IP-адрес (например, 192.168.1.100): " IP_ADDR
+read -p "Введите маску подсети (например, 255.255.255.0): " NETMASK
+read -p "Введите шлюз (например, 192.168.1.1): " GATEWAY
+read -p "Введите DNS-сервер(а) (например, 8.8.8.8 1.1.1.1): " DNS
+
+# === Создание backup ===
+cp "$CONFIG_FILE" "$CONFIG_FILE.bak"
+
+# === Замена конфигурации интерфейса ===
+cat > "$CONFIG_FILE" <<EOF
+auto lo
+iface lo inet loopback
+
+auto $IFACE
+iface $IFACE inet static
+    address $IP_ADDR
+    netmask $NETMASK
+    gateway $GATEWAY
+    dns-nameservers $DNS
+EOF
+
+# === Перезапуск сети ===
+echo "[IP][+] Перезапуск сети..."
+ifdown "$IFACE" && ifup "$IFACE"
+
+echo "[IP][✓] Статический IP-адрес настроен на $IFACE: $IP_ADDR"

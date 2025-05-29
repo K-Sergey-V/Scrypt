@@ -1,0 +1,35 @@
+#!/bin/bash
+# wget https://raw.githubusercontent.com/K-Sergey-V/Scrypt/refs/heads/main/deb-config-newuser
+# version by 2025-05-29
+# Sergey Krichko
+set -e
+
+echo "[newuser][+] Создание пользователя ..."
+read -p "Введите имя нового пользователя: " USERNAME
+
+# Проверка: существует ли пользователь
+if id "$USERNAME" &>/dev/null; then
+    echo "[newuser][-] Пользователь '$USERNAME' уже существует."
+else
+    # === Ввод пароля ===
+    read -s -p "Введите пароль для $USERNAME: " PASSWORD
+    echo
+    read -s -p "Повторите пароль: " PASSWORD2
+    echo
+
+    if [ "$PASSWORD" != "$PASSWORD2" ]; then
+        echo "[newuser][!] Пароли не совпадают. Прерывание."
+        exit 1
+    fi
+
+    # === Создание пользователя ===
+    echo "[newuser][>] Создание пользователя $USERNAME..."
+    useradd -m -s /bin/bash "$USERNAME"
+    echo "$USERNAME:$PASSWORD" | chpasswd
+    cho "[newuser][✓] Пользователь $USERNAME создан"
+fi
+
+    # === Добавление в группу sudo ===
+    usermod -aG sudo "$USERNAME"
+    echo "[newuser][✓] Пользователь $USERNAME добавлен в группу sudo"
+fi

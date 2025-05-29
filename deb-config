@@ -1,0 +1,35 @@
+#!/bin/bash
+# wget https://raw.githubusercontent.com/K-Sergey-V/Scrypt/refs/heads/main/deb-config
+# version by 2025-05-29
+# Sergey Krichko
+set -e
+
+if [ "$(id -u)" -ne 0 ]; then
+    echo "Этот скрипт нужно запускать от root"
+    exit 1
+fi
+
+echo "[update][+] Обновление системы..."
+# Update and Upgrade system
+apt update -y && apt upgrade -y
+echo "[update][✓] система обновлена"
+
+echo "[install][+] Установка сетевых программ..."
+apt install -y mtr net-tools
+echo "[install][✓] Устанлены"
+
+
+echo "[sudo][+] Установка sudo..."
+# Установим sudo, если не установлен
+if ! command -v sudo &> /dev/null; then
+    apt install -y sudo
+    echo "[sudo][✓] sudo установлен"
+else
+    echo "[sudo][-] sudo уже установлен"
+fi
+
+apt install -y mtr net-tools
+
+bash deb-config-newuser
+bash deb-config-ssh
+bash deb-config-ip
