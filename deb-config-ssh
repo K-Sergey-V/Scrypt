@@ -5,6 +5,15 @@
 set -e
 
 echo "[SSH][+] Конфигурирование SSH..."
+
+# Получение текущего порта (по умолчанию 22, если не указано)
+CURRENT_PORT=$(grep -E "^Port " "$SSHD_CONFIG" | awk '{print $2}' || true)
+if [ -z "$CURRENT_PORT" ]; then
+    CURRENT_PORT=22
+fi
+
+echo "[i] Текущий порт SSH: $CURRENT_PORT"
+
 # === Запрос нового порта ===
 read -p "Введите новый порт для SSH (1-65535): " NEW_PORT
 

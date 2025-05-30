@@ -1,8 +1,7 @@
 #!/bin/bash
-# wget https://raw.githubusercontent.com/K-Sergey-V/Scrypt/refs/heads/main/deb-config
+# wget https://raw.githubusercontent.com/K-Sergey-V/Scrypt/refs/heads/main/deb-config bash deb-config
 # version by 2025-05-29
 # Sergey Krichko
-set -e
 
 if [ "$(id -u)" -ne 0 ]; then
     echo "Этот скрипт нужно запускать от root"
