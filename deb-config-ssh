@@ -5,14 +5,14 @@
 set -e
 
 echo "[SSH][+] Конфигурирование SSH..."
+SSHD_CONFIG="/etc/ssh/sshd_config"
 
 # Получение текущего порта (по умолчанию 22, если не указано)
 CURRENT_PORT=$(grep -E "^Port " "$SSHD_CONFIG" | awk '{print $2}' || true)
 if [ -z "$CURRENT_PORT" ]; then
     CURRENT_PORT=22
 fi
-
-echo "[i] Текущий порт SSH: $CURRENT_PORT"
+echo "[SSH] Текущий порт SSH: $CURRENT_PORT"
 
 # === Запрос нового порта ===
 read -p "Введите новый порт для SSH (1-65535): " NEW_PORT
@@ -24,8 +24,6 @@ if ! [[ "$NEW_PORT" =~ ^[0-9]+$ ]] || [ "$NEW_PORT" -lt 1 ] || [ "$NEW_PORT" -gt
 fi
 
 # === Изменение порта в sshd_config ===
-SSHD_CONFIG="/etc/ssh/sshd_config"
-
 echo "[SSH][+] Изменение порта SSH на $NEW_PORT..."
 if grep -q "^#Port" "$SSHD_CONFIG"; then
     sed -i "s/^#Port.*/Port $NEW_PORT/" "$SSHD_CONFIG"
@@ -44,5 +42,4 @@ fi
 # === Перезапуск SSH ===
 echo "[SSH][+] Перезапуск ssh..."
 systemctl restart ssh
-
 echo "[SSH][✓] SSH теперь слушает порт $NEW_PORT"

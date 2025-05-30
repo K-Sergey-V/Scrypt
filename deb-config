@@ -15,7 +15,7 @@ echo "[update][✓] система обновлена"
 
 echo "[install][+] Установка сетевых программ..."
 apt install -y mtr net-tools
-echo "[install][✓] Устанлены"
+echo "[install][✓] Программы устанлены"
 
 
 echo "[sudo][+] Установка sudo..."
@@ -27,13 +27,14 @@ else
     echo "[sudo][-] sudo уже установлен"
 fi
 
-apt install -y mtr net-tools
-
+# config-NEWUSER
 wget https://raw.githubusercontent.com/K-Sergey-V/Scrypt/refs/heads/main/deb-config-newuser
 bash deb-config-newuser
 
+# config-SSH
 wget https://raw.githubusercontent.com/K-Sergey-V/Scrypt/refs/heads/main/deb-config-ssh
 bash deb-config-ssh
 
+#config-IP
 wget https://raw.githubusercontent.com/K-Sergey-V/Scrypt/refs/heads/main/deb-config-ip
 bash deb-config-ip
