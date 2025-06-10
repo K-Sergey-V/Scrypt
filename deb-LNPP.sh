@@ -5,9 +5,12 @@
 # Sergey Krichko
 
 wget https://raw.githubusercontent.com/K-Sergey-V/Scrypt/refs/heads/main/deb-nginx.sh
-wget https://raw.githubusercontent.com/K-Sergey-V/Scrypt/refs/heads/main/deb-php.sh
-wget https://raw.githubusercontent.com/K-Sergey-V/Scrypt/refs/heads/main/deb-postgresql.sh
-
 bash deb-nginx.sh
+
+
+wget https://raw.githubusercontent.com/K-Sergey-V/Scrypt/refs/heads/main/deb-php.sh
 bash deb-php.sh 8.3
+
+
+wget https://raw.githubusercontent.com/K-Sergey-V/Scrypt/refs/heads/main/deb-postgresql.sh
 bash deb-postgresql.sh 17
