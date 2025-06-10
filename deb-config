@@ -14,7 +14,7 @@ apt update -y && apt upgrade -y
 echo "[update][✓] система обновлена"
 
 echo "[install][+] Установка сетевых программ..."
-apt install -y mtr net-tools
+apt install -y mtr net-tools htop
 echo "[install][✓] Программы устанлены"
 
 
@@ -24,7 +24,7 @@ if ! command -v sudo &> /dev/null; then
     apt install -y sudo
     echo "[sudo][✓] sudo установлен"
 else
-    echo "[sudo][-] sudo уже установлен"
+    echo "[sudo][-] sudo уже установлен ранее"
 fi
 
 # config-NEWUSER
