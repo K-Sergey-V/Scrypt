@@ -1,5 +1,5 @@
 #!/bin/bash
-# wget https://raw.githubusercontent.com/K-Sergey-V/Scrypt/refs/heads/main/deb-nginx.sh && sudo bash deb-nginx.sh
+# wget https://k-sergey-v.github.io/Scrypt/deb-nginx.sh && sudo bash deb-nginx.sh
 # Install lastet NGINX (nginx repository)
 # version by 2025-05-12-0027
 # Sergey Krichko

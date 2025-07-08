@@ -1,5 +1,5 @@
 #!/bin/bash
-# wget https://raw.githubusercontent.com/K-Sergey-V/Scrypt/refs/heads/main/deb-config-newuser && sudo bash deb-config-newuser
+# wget https://k-sergey-v.github.io/Scrypt/deb-config-newuser && sudo bash deb-config-newuser
 # version by 2025-05-29
 # Sergey Krichko
 set -e
