@@ -1,0 +1,8 @@
+#!/bin/bash
+# wget https://k-sergey-v.github.io/Scrypt/deb-!config-netsoft && sudo bash deb-!config-netsoft
+# version by 2025-05-29
+# Sergey Krichko
+
+echo "[netsoft][+] Установка сетевых программ..."
+apt install -y mtr net-tools htop
+echo "[netsoft][✓] Программы устанлены"

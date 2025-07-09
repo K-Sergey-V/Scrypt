@@ -1,5 +1,5 @@
 #!/bin/bash
-# wget https://k-sergey-v.github.io/Scrypt/deb-config && bash deb-config
+# wget https://k-sergey-v.github.io/Scrypt/deb-!config && bash deb-!config
 # version by 2025-05-29
 # Sergey Krichko
 
@@ -13,11 +13,6 @@ echo "[update][+] Обновление системы..."
 apt update -y && apt upgrade -y
 echo "[update][✓] система обновлена"
 
-echo "[install][+] Установка сетевых программ..."
-apt install -y mtr net-tools htop
-echo "[install][✓] Программы устанлены"
-
-
 echo "[sudo][+] Установка sudo..."
 # Установим sudo, если не установлен
 if ! command -v sudo &> /dev/null; then
@@ -27,14 +22,18 @@ else
     echo "[sudo][-] sudo уже установлен ранее"
 fi
 
+# config-netsoft
+wget https://k-sergey-v.github.io/Scrypt/deb-!config-netsoft
+bash deb-!config-netsoft
+
 # config-NEWUSER
-wget https://k-sergey-v.github.io/Scrypt/deb-config-newuser
-bash deb-config-newuser
+wget https://k-sergey-v.github.io/Scrypt/deb-!config-newuser
+bash deb-!config-newuser
 
 # config-SSH
-wget https://k-sergey-v.github.io/Scrypt/deb-config-ssh
-bash deb-config-ssh
+wget https://k-sergey-v.github.io/Scrypt/deb-!config-ssh
+bash deb-!config-ssh
 
 #config-IP
-wget https://k-sergey-v.github.io/Scrypt/deb-config-ip
-bash deb-config-ip
+wget https://k-sergey-v.github.io/Scrypt/deb-!config-ip
+bash deb-!config-ip

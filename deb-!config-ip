@@ -1,5 +1,5 @@
 #!/bin/bash
-# wget https://k-sergey-v.github.io/Scrypt/deb-config-ip && sudo bash deb-config-ip
+# wget https://k-sergey-v.github.io/Scrypt/deb-!config-ip && sudo bash deb-!config-ip
 # version by 2025-05-29
 # Sergey Krichko
 set -e
