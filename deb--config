@@ -1,5 +1,5 @@
 #!/bin/bash
-# wget https://k-sergey-v.github.io/Scrypt/deb-!config && bash deb-!config
+# wget https://k-sergey-v.github.io/Scrypt/deb--config && bash deb--config
 # version by 2025-05-29
 # Sergey Krichko
 
@@ -23,17 +23,17 @@ else
 fi
 
 # config-netsoft
-wget https://k-sergey-v.github.io/Scrypt/deb-!config-netsoft
-bash deb-!config-netsoft
+wget https://k-sergey-v.github.io/Scrypt/deb--config-netsoft
+bash deb--config-netsoft
 
 # config-NEWUSER
-wget https://k-sergey-v.github.io/Scrypt/deb-!config-newuser
-bash deb-!config-newuser
+wget https://k-sergey-v.github.io/Scrypt/deb--config-newuser
+bash deb--config-newuser
 
 # config-SSH
-wget https://k-sergey-v.github.io/Scrypt/deb-!config-ssh
-bash deb-!config-ssh
+wget https://k-sergey-v.github.io/Scrypt/deb--config-ssh
+bash deb--config-ssh
 
 #config-IP
-wget https://k-sergey-v.github.io/Scrypt/deb-!config-ip
-bash deb-!config-ip
+wget https://k-sergey-v.github.io/Scrypt/deb--config-ip
+bash deb--config-ip
