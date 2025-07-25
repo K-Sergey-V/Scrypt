@@ -10,6 +10,8 @@ read -p "Введите имя нового пользователя: " USERNAME
 # Проверка: существует ли пользователь
 if id "$USERNAME" &>/dev/null; then
     echo "[newuser][-] Пользователь '$USERNAME' уже существует."
+    usermod -aG sudo "$USERNAME"
+    echo "[newuser][+] Пользователь $USERNAME добавлен в группу sudo"
 else
     # === Ввод пароля ===
     read -s -p "Введите пароль для $USERNAME: " PASSWORD
