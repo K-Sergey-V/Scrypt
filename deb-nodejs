@@ -8,6 +8,7 @@ sudo apt update
 sudo apt upgrade -y
 
 # 2. Установка Node.js LTS 24.x
+echo "[Node.js][!] Установка Node.js LTS 24.x"
 curl -fsSL https://deb.nodesource.com/setup_24.x | sudo -E bash -
 sudo apt install -y nodejs
 
