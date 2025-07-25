@@ -1,0 +1,16 @@
+#!/bin/bash
+# wget https://k-sergey-v.github.io/Scrypt/deb-nodejs && sudo bash deb-nodejs
+# version by 2025-07-25
+# Sergey Krichko
+
+# 1. Обновление пакетов
+sudo apt update
+sudo apt upgrade -y
+
+# 2. Установка Node.js LTS 24.x
+curl -fsSL https://deb.nodesource.com/setup_24.x | sudo -E bash -
+sudo apt install -y nodejs
+
+# проверяем
+node -v   # должно быть что‑то вроде v24.y.z
+npm -v
