@@ -3,17 +3,25 @@
 # version by 2025-07-25
 # Sergey Krichko
 
+if [ -z "$1" ]; then
+    echo "Ошибка: не указана версия NodeJS"
+    exit 1
+fi
+nodejsversion=$1
+
 # 1. Обновление пакетов
 sudo apt update
 sudo apt upgrade -y
+
+# 2. Устанока необходимых пакетов
 sudo apt install -y curl
 
-# 2. Установка Node.js LTS 24.x
-curl -fsSL https://deb.nodesource.com/setup_24.x | sudo -E bash -
+# 3. Установка NodeJS
+curl -fsSL https://deb.nodesource.com/setup_$nodejsversion.x | sudo -E bash -
 sudo apt install -y nodejs
 
 # проверяем
 echo "[nodejs][✓] Версия NodeJS " 
-node -v   # должно быть что‑то вроде v24.y.z
+node -v
 echo "[nodejs][✓]  Версия NPM " 
 npm -v
