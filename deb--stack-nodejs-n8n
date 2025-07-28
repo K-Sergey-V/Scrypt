@@ -1,10 +1,10 @@
 #!/bin/bash
-# wget https://k-sergey-v.github.io/Scrypt/deb-nodejs-n8n && sudo bash deb-nodejs-n8n
+# wget https://k-sergey-v.github.io/Scrypt/deb--stack-nodejs-n8n && sudo bash deb--stack-nodejs-n8n
 # version by 2025-07-25
 # Sergey Krichko
 
 wget https://k-sergey-v.github.io/Scrypt/deb-nodejs
-sudo bash deb-nodejs
+sudo bash deb-nodejs 24
 
 adduser --system --shell /bin/bash --gecos "n8n service user" --group --disabled-password n8n
 sudo mkdir /home/n8n/.n8n
