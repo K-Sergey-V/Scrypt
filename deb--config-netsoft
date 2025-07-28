@@ -3,6 +3,6 @@
 # version by 2025-05-29
 # Sergey Krichko
 
-echo "[netsoft][+] Установка сетевых программ..."
+echo "[netsoft] Установка сетевых программ..."
 apt install -y mtr net-tools htop
-echo "[netsoft][✓] Программы устанлены"
+echo "[netsoft][✓] Программы устанлены"s

@@ -8,12 +8,12 @@ if [ "$(id -u)" -ne 0 ]; then
     exit 1
 fi
 
-echo "[update][+] Обновление системы..."
+echo "[update] Обновление системы..."
 # Update and Upgrade system
 apt update -y && apt upgrade -y
 echo "[update][✓] система обновлена"
 
-echo "[sudo][+] Установка sudo..."
+echo "[sudo] Установка sudo..."
 # Установим sudo, если не установлен
 if ! command -v sudo &> /dev/null; then
     apt install -y sudo

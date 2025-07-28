@@ -9,28 +9,28 @@ read -p "Введите имя нового пользователя: " USERNAME
 
 # Проверка: существует ли пользователь
 if id "$USERNAME" &>/dev/null; then
-    echo "[newuser][-] Пользователь '$USERNAME' уже существует."
+    echo "[newuser >>> add] [-] Пользователь '$USERNAME' уже существует."
     usermod -aG sudo "$USERNAME"
-    echo "[newuser][+] Пользователь $USERNAME добавлен в группу sudo"
+    echo "[newuser >>> sudo] [✓] Пользователь $USERNAME добавлен в группу sudo"
 else
     # === Ввод пароля ===
-    read -s -p "Введите пароль для $USERNAME: " PASSWORD
+    read -s -p "[newuser >>> password] Введите пароль для $USERNAME: " PASSWORD
     echo
-    read -s -p "Повторите пароль: " PASSWORD2
+    read -s -p "[newuser >>> password] Повторите пароль: " PASSWORD2
     echo
 
     if [ "$PASSWORD" != "$PASSWORD2" ]; then
-        echo "[newuser][!] Пароли не совпадают. Прерывание."
+        echo "[newuser >>> password] [!] Пароли не совпадают. Прерывание."
         exit 1
     fi
 
     # === Создание пользователя ===
-    echo "[newuser][>] Создание пользователя $USERNAME..."
+    echo "[newuser >>> add] Создание пользователя $USERNAME..."
     useradd -m -s /bin/bash "$USERNAME"
     echo "$USERNAME:$PASSWORD" | chpasswd
-    echo "[newuser][✓] Пользователь $USERNAME создан"
+    echo "[newuser >>> add] [✓] Пользователь $USERNAME создан"
 
     # === Добавление в группу sudo ===
     usermod -aG sudo "$USERNAME"
-    echo "[newuser][✓] Пользователь $USERNAME добавлен в группу sudo"
+    echo "[newuser >>> sudo] [✓] Пользователь $USERNAME добавлен в группу sudo"
 fi

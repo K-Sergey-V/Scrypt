@@ -4,7 +4,7 @@
 # Sergey Krichko
 set -e
 
-echo "[SSH][+] Конфигурирование SSH..."
+echo "[SSH] Конфигурирование SSH..."
 SSHD_CONFIG="/etc/ssh/sshd_config"
 
 # Получение текущего порта (по умолчанию 22, если не указано)
@@ -24,7 +24,7 @@ if ! [[ "$NEW_PORT" =~ ^[0-9]+$ ]] || [ "$NEW_PORT" -lt 1 ] || [ "$NEW_PORT" -gt
 fi
 
 # === Изменение порта в sshd_config ===
-echo "[SSH][+] Изменение порта SSH на $NEW_PORT..."
+echo "[SSH] Изменение порта SSH на $NEW_PORT..."
 if grep -q "^#Port" "$SSHD_CONFIG"; then
     sed -i "s/^#Port.*/Port $NEW_PORT/" "$SSHD_CONFIG"
 elif grep -q "^Port" "$SSHD_CONFIG"; then
@@ -35,11 +35,11 @@ fi
 
 # === Открытие порта в UFW (если включён) ===
 if command -v ufw &>/dev/null && ufw status | grep -q "Status: active"; then
-    echo "[SSH][+] Настройка UFW..."
+    echo "[SSH] Настройка UFW..."
     ufw allow "$NEW_PORT"/tcp
 fi
 
 # === Перезапуск SSH ===
-echo "[SSH][+] Перезапуск ssh..."
+echo "[SSH] Перезапуск ssh..."
 systemctl restart ssh
 echo "[SSH][✓] SSH теперь слушает порт $NEW_PORT"
