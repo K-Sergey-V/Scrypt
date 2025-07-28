@@ -1,0 +1,20 @@
+#!/bin/bash
+# wget https://k-sergey-v.github.io/Scrypt/deb-nodejs-n8n && sudo bash deb-nodejs-n8n
+# version by 2025-07-25
+# Sergey Krichko
+
+sudo apt install -y curl gnupg build-essential
+
+#To install n8n globally, use npm:
+sudo npm install n8n -g
+
+#To install next:
+sudo npm install -g n8n@next
+
+#After the installation, start n8n by running:
+echo "[nodejs-n8n][✓]  Версия N8N " 
+n8n --version
+
+
+
+#sudo useradd -r -m -d /home/n8n -s /usr/sbin/nologin n8n

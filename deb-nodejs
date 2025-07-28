@@ -13,5 +13,7 @@ curl -fsSL https://deb.nodesource.com/setup_24.x | sudo -E bash -
 sudo apt install -y nodejs
 
 # проверяем
+echo "[nodejs][✓] Версия NodeJS " 
 node -v   # должно быть что‑то вроде v24.y.z
+echo "[nodejs][✓]  Версия NPM " 
 npm -v
