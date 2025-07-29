@@ -9,19 +9,21 @@ if [ -z "$1" ]; then
 fi
 nodejsversion=$1
 
-# 1. Обновление пакетов
-sudo apt update
+# 0. Обновление пакетов системы
+echo "[Update and Upgrade SYSTEM]"
+sudo apt update -y
 sudo apt upgrade -y
 
-# 2. Устанока необходимых пакетов
+# 1. Устанока необходимых пакетов
 sudo apt install -y curl
 
-# 3. Установка NodeJS
+# 2. Установка NodeJS
+echo "[nodejs >>> installing...]" 
 curl -fsSL https://deb.nodesource.com/setup_$nodejsversion.x | sudo -E bash -
 sudo apt install -y nodejs
 
-# проверяем
-echo "[nodejs][✓] Версия NodeJS " 
-node -v
-echo "[nodejs][✓]  Версия NPM " 
-npm -v
+# 3. Проверяем
+echo "[nodejs][✓]" 
+echo "Версия NodeJS = $(node -v) "
+echo "[nodejs][✓]" 
+echo "Версия NPM = $(npm -v)"

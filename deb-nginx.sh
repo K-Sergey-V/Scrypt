@@ -10,7 +10,11 @@ echo "> > > > > > > > > > > > > > > > > > > > > > > > > > > > > >"
 echo "====================================================="
 echo "-----------------------------------------------------"
 echo "> > > > > Install NGINX (nginx repository) =====>>>>> update && upgrade:"
-sudo apt update && upgrade
+
+# 1. Обновление пакетов
+sudo apt update -y
+sudo apt upgrade -y
+
 
 echo "-----------------------------------------------------"
 echo "> > > > > Install NGINX (nginx repository) =====>>>>> add repository:"

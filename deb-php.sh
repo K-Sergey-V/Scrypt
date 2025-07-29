@@ -19,7 +19,9 @@ echo "-----------------------------------------------------------------"
 echo "> > > > > Install PHP (https://packages.sury.org/php/) =====>>>>> version=$phpversion"
 echo "-----------------------------------------------------------------"
 echo "> > > > > Install PHP (https://packages.sury.org/php/) =====>>>>> update && upgrade:"
-sudo apt update && upgrade
+# 1. Обновление пакетов
+sudo apt update -y
+sudo apt upgrade -y
 
 #---
 echo "-----------------------------------------------------------------"

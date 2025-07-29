@@ -22,7 +22,9 @@ echo "> > > > > Install POSTGRESQL (https://www.postgresql.org/) =====>>>>> vers
 #---
 echo "--------------------------------------------------------------------"
 echo "> > > > > Install POSTGRESQL (https://www.postgresql.org/) =====>>>>> update && upgrade:"
-sudo apt update && upgrade
+# 1. Обновление пакетов
+sudo apt update -y
+sudo apt upgrade -y
 
 #---
 echo "--------------------------------------------------------------------"

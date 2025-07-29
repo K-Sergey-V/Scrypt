@@ -3,15 +3,18 @@
 # version by 2025-07-25
 # Sergey Krichko
 
-# update upgrade system
-sudo apt update && upgrade
+# 0. Обновление пакетов системы
+echo "[SYSTEM >>> Update and Upgrade]"
+sudo apt update -y
+sudo apt upgrade -y
 
 # install soft
+echo "[SYSTEM >>> installing need soft]"
 sudo apt install -y curl gnupg build-essential ca-certificates git
 
 # 
 adduser --system --shell /bin/bash --gecos "n8n service user" --group --disabled-password n8n
-sudo mkdir /home/n8n/.n8n
+# sudo mkdir /home/n8n/.n8n
 
 # To install n8n globally, use npm:
 sudo npm install n8n -g
