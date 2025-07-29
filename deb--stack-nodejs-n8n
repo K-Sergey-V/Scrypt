@@ -19,8 +19,8 @@ sudo npm install n8n -g
 sudo npm install -g n8n@next
 
 #After the installation, start n8n by running:
-echo "[nodejs-n8n][✓]  Версия N8N " 
-n8n --version
+echo "[nodejs-n8n][✓]" 
+echo "Версия N8N = $(n8n --version)"
 
 
 sudo tee /etc/systemd/system/n8n.service > /dev/null << 'EOF'
