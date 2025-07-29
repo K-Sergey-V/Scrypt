@@ -9,7 +9,7 @@ sudo apt update -y
 sudo apt upgrade -y
 
 # install soft
-echo "[SYSTEM >>> installing need soft]"
+echo "[SYSTEM >>> installing need soft >>> n8n-npm]"
 sudo apt install -y curl gnupg build-essential ca-certificates git
 
 # 

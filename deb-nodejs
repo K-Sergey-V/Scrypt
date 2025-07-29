@@ -10,11 +10,12 @@ fi
 nodejsversion=$1
 
 # 0. Обновление пакетов системы
-echo "[Update and Upgrade SYSTEM]"
+echo "[SYSTEM >>> Update and Upgrade]"
 sudo apt update -y
 sudo apt upgrade -y
 
 # 1. Устанока необходимых пакетов
+echo "[SYSTEM >>> installing need soft >>> nodejs]"
 sudo apt install -y curl
 
 # 2. Установка NodeJS
