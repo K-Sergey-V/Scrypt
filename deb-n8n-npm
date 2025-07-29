@@ -1,6 +1,6 @@
 #!/bin/bash
 # wget https://k-sergey-v.github.io/Scrypt/deb-n8n-npm && sudo bash deb-n8n-npm
-# version by 2025-07-25
+# version by 2025-07-29
 # Sergey Krichko
 
 # 0. [SYSTEM]
@@ -10,32 +10,29 @@ sudo apt upgrade -y
 echo "[SYSTEM][✓] >>> update completed!"
 
 
-# install soft
-echo "[SYSTEM] >>> installing need soft >>> n8n-npm"
+# 1. Installing the required packages for N8N
+echo "[SYSTEM] >>> installing need soft for N8N-NPM"
 sudo apt install -y curl gnupg build-essential ca-certificates git
+echo "[SYSTEM][✓] >>> Installing completed!"
 
-# 
-adduser --system --shell /bin/bash --gecos "n8n service user" --group --disabled-password n8n
-# sudo mkdir /home/n8n/.n8n
-
-# 1. создаём системную группу и пользователя n8n
+# 2. create a system group and user n8n
+echo "[N8N] >>> create user n8n"
 sudo adduser --system --gecos "n8n service user" --group --home /var/lib/n8n --shell /usr/sbin/nologin --disabled-password n8n
 sudo chown -R n8n:n8n /var/lib/n8n
 sudo chmod 750 /var/lib/n8n
 
 
 # To install n8n globally, use npm:
-echo "[nodejs-n8n] >>> installing..." 
+echo "[N8N] >>> installing..." 
 sudo npm install n8n -g
-echo "[nodejs-n8n] >>> installed = $(n8n --version)"
+echo "[N8N] >>> installed = $(n8n --version)"
 
 #To install next:
-echo "[nodejs-n8n] >>> update to next"
+echo "[N8N] >>> update to next"
 sudo npm install -g n8n@next
 
 #After the installation, start n8n by running:
-echo "[nodejs-n8n][✓]" 
-echo "Версия N8N = $(n8n --version)"
+echo "[N8N][✓] Версия N8N = $(n8n --version)"
 
 
 # sudo tee /etc/systemd/system/n8n.service > /dev/null << 'EOF'
