@@ -6,43 +6,5 @@
 wget https://k-sergey-v.github.io/Scrypt/deb-nodejs
 sudo bash deb-nodejs 24
 
-adduser --system --shell /bin/bash --gecos "n8n service user" --group --disabled-password n8n
-sudo mkdir /home/n8n/.n8n
-
-# install soft
-sudo apt install -y curl gnupg build-essential ca-certificates git
-
-#To install n8n globally, use npm:
-sudo npm install n8n -g
-
-#To install next:
-sudo npm install -g n8n@next
-
-#After the installation, start n8n by running:
-echo "[nodejs-n8n][✓]" 
-echo "Версия N8N = $(n8n --version)"
-
-
-# sudo tee /etc/systemd/system/n8n.service > /dev/null << 'EOF'
-# [Unit]
-# Description=n8n workflow automation
-# After=network.target
-
-# [Service]
-# Type=simple
-# User=n8n
-# EnvironmentFile=/home/n8n/.n8n/.env
-# ExecStart=/usr/bin/n8n
-# Restart=on-failure
-# # Увеличиваем лимит открытых файлов (рекомендуется для высокой нагрузки)
-# LimitNOFILE=65536
-
-# [Install]
-# WantedBy=multi-user.target
-# EOF
-
-# sudo systemctl daemon-reload
-
-
-# sudo systemctl enable n8n
-# sudo systemctl start n8n
+wget https://k-sergey-v.github.io/Scrypt/deb-n8n-npm 
+sudo bash deb-n8n-npm

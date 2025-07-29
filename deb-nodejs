@@ -1,5 +1,5 @@
 #!/bin/bash
-# wget https://k-sergey-v.github.io/Scrypt/deb-nodejs && sudo bash deb-nodejs
+# wget https://k-sergey-v.github.io/Scrypt/deb-nodejs && sudo bash deb-nodejs 24
 # version by 2025-07-25
 # Sergey Krichko
 
