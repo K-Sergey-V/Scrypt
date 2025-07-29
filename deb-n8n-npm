@@ -4,12 +4,12 @@
 # Sergey Krichko
 
 # 0. Обновление пакетов системы
-echo "[SYSTEM >>> Update and Upgrade]"
+echo "[SYSTEM] >>> Update and Upgrade"
 sudo apt update -y
 sudo apt upgrade -y
 
 # install soft
-echo "[SYSTEM >>> installing need soft >>> n8n-npm]"
+echo "[SYSTEM] >>> installing need soft >>> n8n-npm"
 sudo apt install -y curl gnupg build-essential ca-certificates git
 
 # 
@@ -17,9 +17,12 @@ adduser --system --shell /bin/bash --gecos "n8n service user" --group --disabled
 # sudo mkdir /home/n8n/.n8n
 
 # To install n8n globally, use npm:
+echo "[nodejs-n8n] >>> installing..." 
 sudo npm install n8n -g
+echo "[nodejs-n8n] >>> installed = $(n8n --version)"
 
 #To install next:
+echo "[nodejs-n8n] >>> update to next"
 sudo npm install -g n8n@next
 
 #After the installation, start n8n by running:

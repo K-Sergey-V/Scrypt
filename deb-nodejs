@@ -10,16 +10,16 @@ fi
 nodejsversion=$1
 
 # 0. Обновление пакетов системы
-echo "[SYSTEM >>> Update and Upgrade]"
+echo "[SYSTEM] >>> Update and Upgrade"
 sudo apt update -y
 sudo apt upgrade -y
 
 # 1. Устанока необходимых пакетов
-echo "[SYSTEM >>> installing need soft >>> nodejs]"
+echo "[SYSTEM] >>> installing need soft >>> nodejs"
 sudo apt install -y curl
 
 # 2. Установка NodeJS
-echo "[nodejs >>> installing...]" 
+echo "[nodejs] >>> installing..." 
 curl -fsSL https://deb.nodesource.com/setup_$nodejsversion.x | sudo -E bash -
 sudo apt install -y nodejs
 
