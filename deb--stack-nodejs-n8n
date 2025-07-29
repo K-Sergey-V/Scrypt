@@ -23,26 +23,26 @@ echo "[nodejs-n8n][✓]"
 echo "Версия N8N = $(n8n --version)"
 
 
-sudo tee /etc/systemd/system/n8n.service > /dev/null << 'EOF'
-[Unit]
-Description=n8n workflow automation
-After=network.target
+# sudo tee /etc/systemd/system/n8n.service > /dev/null << 'EOF'
+# [Unit]
+# Description=n8n workflow automation
+# After=network.target
 
-[Service]
-Type=simple
-User=n8n
-EnvironmentFile=/home/n8n/.n8n/.env
-ExecStart=/usr/bin/n8n
-Restart=on-failure
-# Увеличиваем лимит открытых файлов (рекомендуется для высокой нагрузки)
-LimitNOFILE=65536
+# [Service]
+# Type=simple
+# User=n8n
+# EnvironmentFile=/home/n8n/.n8n/.env
+# ExecStart=/usr/bin/n8n
+# Restart=on-failure
+# # Увеличиваем лимит открытых файлов (рекомендуется для высокой нагрузки)
+# LimitNOFILE=65536
 
-[Install]
-WantedBy=multi-user.target
-EOF
+# [Install]
+# WantedBy=multi-user.target
+# EOF
 
-sudo systemctl daemon-reload
+# sudo systemctl daemon-reload
 
 
-sudo systemctl enable n8n
-sudo systemctl start n8n
+# sudo systemctl enable n8n
+# sudo systemctl start n8n
