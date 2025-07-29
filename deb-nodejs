@@ -1,6 +1,6 @@
 #!/bin/bash
 # wget https://k-sergey-v.github.io/Scrypt/deb-nodejs && sudo bash deb-nodejs 24
-# version by 2025-07-25
+# version by 2025-07-29
 # Sergey Krichko
 
 if [ -z "$1" ]; then
@@ -9,22 +9,23 @@ if [ -z "$1" ]; then
 fi
 nodejsversion=$1
 
-# 0. Обновление пакетов системы
+# 0. [SYSTEM]
 echo "[SYSTEM] >>> Update and Upgrade"
 sudo apt update -y
 sudo apt upgrade -y
+echo "[SYSTEM][✓] >>> update completed!"
 
-# 1. Устанока необходимых пакетов
-echo "[SYSTEM] >>> installing need soft >>> nodejs"
+# 1. Installing the required packages for NodeJS
+echo "[SYSTEM] >>> Installing the required packages for NodeJS"
 sudo apt install -y curl
+echo "[SYSTEM][✓] >>> Installing completed!"
 
-# 2. Установка NodeJS
-echo "[nodejs] >>> installing..." 
+# 2. Installing NodeJS
+echo "[NODEJS] >>> installing..." 
 curl -fsSL https://deb.nodesource.com/setup_$nodejsversion.x | sudo -E bash -
 sudo apt install -y nodejs
+echo "[NODEJS][✓] >>> Installing completed!"
 
 # 3. Проверяем
-echo "[nodejs][✓]" 
-echo "Версия NodeJS = $(node -v) "
-echo "[nodejs][✓]" 
-echo "Версия NPM = $(npm -v)"
+echo "[NODEJS][✓] Версия NodeJS = $(node -v) "
+echo "[NODEJS][✓] Версия NPM = $(npm -v)"

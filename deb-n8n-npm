@@ -3,10 +3,12 @@
 # version by 2025-07-25
 # Sergey Krichko
 
-# 0. Обновление пакетов системы
+# 0. [SYSTEM]
 echo "[SYSTEM] >>> Update and Upgrade"
 sudo apt update -y
 sudo apt upgrade -y
+echo "[SYSTEM][✓] >>> update completed!"
+
 
 # install soft
 echo "[SYSTEM] >>> installing need soft >>> n8n-npm"

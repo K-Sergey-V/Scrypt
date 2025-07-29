@@ -1,6 +1,6 @@
 #!/bin/bash
 # wget https://k-sergey-v.github.io/Scrypt/deb--stack-nodejs-n8n && sudo bash deb--stack-nodejs-n8n
-# version by 2025-07-25
+# version by 2025-07-29
 # Sergey Krichko
 
 wget https://k-sergey-v.github.io/Scrypt/deb-nodejs
