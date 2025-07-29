@@ -1,30 +1,30 @@
 #!/bin/bash
 # wget https://k-sergey-v.github.io/Scrypt/deb--config-ssh && bash sudo deb--config-ssh
-# version by 2025-05-29
+# version by 2025-07-29
 # Sergey Krichko
 set -e
 
-echo "[SSH] Конфигурирование SSH..."
+echo "[SSH] >>> Configuration SSH..."
 SSHD_CONFIG="/etc/ssh/sshd_config"
 
-# Получение текущего порта (по умолчанию 22, если не указано)
+# Get the current port (default 22 if not specified)
 CURRENT_PORT=$(grep -E "^Port " "$SSHD_CONFIG" | awk '{print $2}' || true)
 if [ -z "$CURRENT_PORT" ]; then
     CURRENT_PORT=22
 fi
-echo "[SSH] Текущий порт SSH: $CURRENT_PORT"
+echo "[SSH] >>> Current SSH port: $CURRENT_PORT"
 
-# === Запрос нового порта ===
-read -p "Введите новый порт для SSH (1-65535): " NEW_PORT
+# === Request new port ===
+read -p "[SSH] >>> Enter a new port for SSH (1-65535): " NEW_PORT
 
-# === Проверка порта ===
+# === Port check ===
 if ! [[ "$NEW_PORT" =~ ^[0-9]+$ ]] || [ "$NEW_PORT" -lt 1 ] || [ "$NEW_PORT" -gt 65535 ]; then
-    echo "[SSH][!] Некорректный порт: $NEW_PORT"
+    echo "[SSH][!] >>> Invalid port: $NEW_PORT"
     exit 1
 fi
 
-# === Изменение порта в sshd_config ===
-echo "[SSH] Изменение порта SSH на $NEW_PORT..."
+# === Changing the port in sshd_config ===
+echo "[SSH] >>> Changing the SSH port to $NEW_PORT..."
 if grep -q "^#Port" "$SSHD_CONFIG"; then
     sed -i "s/^#Port.*/Port $NEW_PORT/" "$SSHD_CONFIG"
 elif grep -q "^Port" "$SSHD_CONFIG"; then
@@ -33,13 +33,13 @@ else
     echo "Port $NEW_PORT" >> "$SSHD_CONFIG"
 fi
 
-# === Открытие порта в UFW (если включён) ===
+# === Opening a port in UFW (if enabled)===
 if command -v ufw &>/dev/null && ufw status | grep -q "Status: active"; then
-    echo "[SSH] Настройка UFW..."
+    echo "[SSH] >>> Setting up UFW..."
     ufw allow "$NEW_PORT"/tcp
 fi
 
-# === Перезапуск SSH ===
-echo "[SSH] Перезапуск ssh..."
+# === Restart SSH ===
+echo "[SSH] >>> Restart ssh..."
 systemctl restart ssh
-echo "[SSH][✓] SSH теперь слушает порт $NEW_PORT"
+echo "[SSH][✓] >>> SSH now listens on port $NEW_PORT"

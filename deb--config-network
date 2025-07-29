@@ -1,0 +1,64 @@
+#!/bin/bash
+# wget https://k-sergey-v.github.io/Scrypt/deb--config-network && sudo bash deb--config-network
+# version by 2025-07-29
+# Sergey Krichko
+
+set -e
+
+CONFIG_FILE="/etc/network/interfaces"
+
+# Get the name of the active interface
+IFACE=$(ip -o -4 route show to default | awk '{print $5}')
+
+# 1. [NETWORK] configuration
+echo "[NETWORK] >>> Interface found: $IFACE"
+echo "Select network setup type:"
+echo "d) Dynamic (DHCP)"
+echo "s) Static IP"
+read -p "Enter d or s: " MODE
+
+# Create backup
+cp "$CONFIG_FILE" "$CONFIG_FILE.bak"
+
+if [[ "$MODE" == "d" ]]; then
+  echo "[NETWORK] >>> dhcp >>> Configuration..."
+
+  cat > "$CONFIG_FILE" <<EOF
+auto lo
+iface lo inet loopback
+
+auto $IFACE
+iface $IFACE inet dhcp
+EOF
+
+elif [[ "$MODE" == "s" ]]; then
+  read -p "Enter a static IP address (e.g. 192.168.1.100): " IP_ADDR
+  read -p "Enter a subnet mask (e.g. 255.255.255.0): " NETMASK
+  read -p "Enter a gateway (e.g. 192.168.1.1): " GATEWAY
+  read -p "Enter a DNS server(s) (e.g. 8.8.8 1.1.1.1): " DNS
+
+  echo "[NETWORK] >>> static >>> Setting up a static IP..."
+
+  cat > "$CONFIG_FILE" <<EOF
+auto lo
+iface lo inet loopback
+
+auto $IFACE
+iface $IFACE inet static
+  address $IP_ADDR
+  netmask $NETMASK
+  gateway $GATEWAY
+  dns-nameservers $DNS
+EOF
+
+else
+  echo "[NETWORK][!] >>> Without changing network settings. Interruption."
+  exit 1
+fi
+
+# Reboot network
+echo "[NETWORK] >>> Restarting the interface $IFACE..."
+ifdown "$IFACE" && ifup "$IFACE"
+
+# [NETWORK] >>> Network configuration ."
+echo "[NETWORK][✓] >>> Network configuration completed!"

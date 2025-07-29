@@ -1,36 +1,38 @@
 #!/bin/bash
 # wget https://k-sergey-v.github.io/Scrypt/deb--config-newuser && sudo bash deb--config-newuser
-# version by 2025-05-29
+# version by 2025-07-29
 # Sergey Krichko
+
 set -e
 
-echo "[newuser][+] Создание пользователя ..."
-read -p "Введите имя нового пользователя: " USERNAME
+# 1.[NEWUSER]
+echo "[NEWUSER] >>> create user..."
+read -p "Insert name new user: " USERNAME
 
-# Проверка: существует ли пользователь
+# Checking if the user exists
 if id "$USERNAME" &>/dev/null; then
-    echo "[newuser >>> add] [-] Пользователь '$USERNAME' уже существует."
+    echo "[NEWUSER] >>> add [-] >>> User '$USERNAME' already exists."
     usermod -aG sudo "$USERNAME"
-    echo "[newuser >>> sudo] [✓] Пользователь $USERNAME добавлен в группу sudo"
+    echo "[NEWUSER] >>> sudo [✓] >>> User $USERNAME added to sudo group"
 else
-    # === Ввод пароля ===
-    read -s -p "[newuser >>> password] Введите пароль для $USERNAME: " PASSWORD
+    # === insert password ===
+    read -s -p "[NEWUSER] >>> password >>> Insert password for $USERNAME: " PASSWORD
     echo
-    read -s -p "[newuser >>> password] Повторите пароль: " PASSWORD2
+    read -s -p "[NEWUSER] >>> password >>> Repeat password: " PASSWORD2
     echo
 
     if [ "$PASSWORD" != "$PASSWORD2" ]; then
-        echo "[newuser >>> password] [!] Пароли не совпадают. Прерывание."
+        echo "[NEWUSER] >>> password [!] >>> Passwords do not match. Aborting."
         exit 1
     fi
 
-    # === Создание пользователя ===
-    echo "[newuser >>> add] Создание пользователя $USERNAME..."
+    # === Create user ===
+    echo "[NEWUSER] >>> add [+] >>> Create user $USERNAME..."
     useradd -m -s /bin/bash "$USERNAME"
     echo "$USERNAME:$PASSWORD" | chpasswd
-    echo "[newuser >>> add] [✓] Пользователь $USERNAME создан"
+    echo "[NEWUSER] >>> add [✓] >>> User $USERNAME created"
 
-    # === Добавление в группу sudo ===
+    # === Add group sudo ===
     usermod -aG sudo "$USERNAME"
-    echo "[newuser >>> sudo] [✓] Пользователь $USERNAME добавлен в группу sudo"
+    echo "[NEWUSER] >>> sudo [✓] >>> User $USERNAME added to sudo group"
 fi

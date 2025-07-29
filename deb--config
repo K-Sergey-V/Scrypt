@@ -1,39 +1,40 @@
 #!/bin/bash
 # wget https://k-sergey-v.github.io/Scrypt/deb--config && bash deb--config
-# version by 2025-05-29
+# version by 2025-07-29
 # Sergey Krichko
 
 if [ "$(id -u)" -ne 0 ]; then
-    echo "Этот скрипт нужно запускать от root"
+    echo "[!] run is not root [!]"
     exit 1
 fi
 
-echo "[update] Обновление системы..."
-# Update and Upgrade system
-apt update -y && apt upgrade -y
-echo "[update][✓] система обновлена"
+# 0. [SYSTEM]
+echo "[SYSTEM] >>> Update and Upgrade"
+sudo apt update -y
+sudo apt upgrade -y
+echo "[SYSTEM][✓] >>> update completed!"
 
-echo "[sudo] Установка sudo..."
-# Установим sudo, если не установлен
+# 1. [SUDO]
+echo "[SUDO] >>> Installing..."
 if ! command -v sudo &> /dev/null; then
     apt install -y sudo
-    echo "[sudo][✓] sudo установлен"
+    echo "[SUDO][✓] >>> install completed!"
 else
-    echo "[sudo][-] sudo уже установлен ранее"
+    echo "[SUDO][-] >>> sudo no installation required"
 fi
 
-# config-netsoft
+# config-NETSOFT
 wget https://k-sergey-v.github.io/Scrypt/deb--config-netsoft
 bash deb--config-netsoft
 
-# config-NEWUSER
-wget https://k-sergey-v.github.io/Scrypt/deb--config-newuser
-bash deb--config-newuser
+# config-NETWORK
+wget https://k-sergey-v.github.io/Scrypt/deb--config-network
+bash deb--config-network
 
 # config-SSH
 wget https://k-sergey-v.github.io/Scrypt/deb--config-ssh
 bash deb--config-ssh
 
-#config-IP
-wget https://k-sergey-v.github.io/Scrypt/deb--config-ip
-bash deb--config-ip
+# config-NEWUSER
+wget https://k-sergey-v.github.io/Scrypt/deb--config-newuser
+bash deb--config-newuser
