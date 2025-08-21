@@ -21,19 +21,17 @@ sudo adduser --system --gecos "n8n service user" --group --home /var/lib/n8n --s
 sudo chown -R n8n:n8n /var/lib/n8n
 sudo chmod 750 /var/lib/n8n
 
-
-# To install n8n globally, use npm:
+# 3. To install n8n globally, use npm:
 echo "[N8N] >>> installing..." 
 sudo npm install n8n -g
-echo "[N8N] >>> installed = $(n8n --version)"
+echo "[N8N][✓] installed N8N = $(n8n --version)"
+
 
 #To install next:
-echo "[N8N] >>> update to next"
-sudo npm install -g n8n@next
+# echo "[N8N] >>> update to next"
+# sudo npm install -g n8n@next
 
 #After the installation, start n8n by running:
-echo "[N8N][✓] Версия N8N = $(n8n --version)"
-
 
 # sudo tee /etc/systemd/system/n8n.service > /dev/null << 'EOF'
 # [Unit]
